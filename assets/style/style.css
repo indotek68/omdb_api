@@ -1,0 +1,19 @@
+body{
+	
+}
+
+ul {
+	list-style: none;
+	padding-left: 0px
+
+}
+
+li {
+	
+}
+
+.list{
+	background-color: gray;
+	padding: 1em;
+	margin: .5em;
+}
