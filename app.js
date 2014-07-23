@@ -45,15 +45,15 @@ app.get('/movie/:id', function(req, res){
 app.post('/favorites', function(req, res){
 	var title = req.body.title;
 	var id = req.body.id;
-	//var movieFav = {title: id}
+	var movieFav = {title: title, id: id}
 	//console.log("this title " + movieFav)
-	favorites.push(title)
+	favorites.push(movieFav)
 	res.redirect("/favorites")
 
 })
 
 app.get('/favorites', function(req, res){
-	res.send("favorites place")
+	res.render("favorites",  {movieArray: favorites})
 })
 
 app.listen(3000);

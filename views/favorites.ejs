@@ -5,6 +5,10 @@
 	<title></title>
 </head>
 <body>
-
+	<ul>	
+	<% movieArray.forEach(function(movie){ %>
+		<li><a href="movie/<%=movie.id %>"><%=movie.title %> <%=movie.id %></a></li>	
+	<% }) %>
+	</ul>
 </body>
 </html>
