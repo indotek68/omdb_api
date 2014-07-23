@@ -5,8 +5,25 @@
   </head>
   <body>
     <ul>
-      <li>Hello Angga</li>
+      <div class=details>
+        <li><%= movieList.Title %></li>
+        <li><%= movieList.Year %></li>
+        <li><%= movieList.Rated %></li>
+        <li><%= movieList.Runtime %></li>
+        <li><%= movieList.Genre %></li>
+        <li><%= movieList.Director %></li>
+        <li><%= movieList.Actors %></li>
+        <li><%= movieList.Plot %></li>
+        <li><%= movieList.imdbRating %></li>
+        <li><img src="<%= movieList.Poster %>" /></li>
+      </div>
     </ul>
+
+    <form method="post" action="/favorites">
+      <input type="submit" value="Add to favorites" />
+      <input type="hidden" value="<%=movieList.Title %>" name="title">
+      <input type="hidden" value="<%=movieList.imdbID %>" name="id">
+    </form>
 
   </body>
 </html>

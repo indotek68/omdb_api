@@ -8,12 +8,8 @@ ul {
 
 }
 
-li {
-	
-}
-
-.list{
+.list li {
 	background-color: gray;
 	padding: 1em;
-	margin: .5em;
+	margin: .5em;	
 }

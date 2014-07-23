@@ -3,9 +3,12 @@ var request = require("request");
 var bodyParser = require("body-parser")
 var path = require('path');
 
-var app = express();
-app.use(express.static(__dirname + '/public'));
+var favorites = [];
 
+var app = express();
+
+app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.urlencoded());
 
 app.set('view engine', 'ejs');
 
@@ -25,9 +28,32 @@ app.get('/search', function(req, res){
   });
 });
 
-//should have title and imdb id
+//should imdb details
 app.get('/movie/:id', function(req, res){
-	res.render("movie")
+	var id = req.params.id
+	var url = "http://www.omdbapi.com/?i=" + id;
+
+	request(url, function(error, response, body){
+		if(!error){
+			var body = JSON.parse(body);
+			// console.log(body);
+			res.render("movie", {movieList: body})
+		}
+	})
 });
+
+app.post('/favorites', function(req, res){
+	var title = req.body.title;
+	var id = req.body.id;
+	//var movieFav = {title: id}
+	//console.log("this title " + movieFav)
+	favorites.push(title)
+	res.redirect("/favorites")
+
+})
+
+app.get('/favorites', function(req, res){
+	res.send("favorites place")
+})
 
 app.listen(3000);
