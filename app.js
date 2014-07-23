@@ -46,10 +46,26 @@ app.post('/favorites', function(req, res){
 	var title = req.body.title;
 	var id = req.body.id;
 	var movieFav = {title: title, id: id}
-	//console.log("this title " + movieFav)
-	favorites.push(movieFav)
+	
+	if(favorites.length === 0){
+		favorites.push(movieFav)
+		console.log(favorites)
+	}
+	else{
+		for (var i = 0; i < favorites.length; i++){
+			if(favorites[i].title === title){
+				console.log("title " + title)
+				console.log("array title " + favorites[i].title)
+				console.log("you already favored this")
+			}
+			else{
+				console.log("else title " + title)
+				favorites.push(movieFav)
+			}
+		};
+	}
+	
 	res.redirect("/favorites")
-
 })
 
 app.get('/favorites', function(req, res){

@@ -13,3 +13,10 @@ ul {
 	padding: 1em;
 	margin: .5em;	
 }
+
+.favorites li {
+	background-color: gray;
+	padding: 1em;
+	margin: .5em;	
+}
+

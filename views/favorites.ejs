@@ -2,12 +2,20 @@
 
 <html>
 <head>
-	<title></title>
+	<title>OMDB Favorite</title>
+	<link rel="stylesheet" type="text/css" href="/style/style.css">
 </head>
 <body>
-	<ul>	
+	<ul class=favorites>	
 	<% movieArray.forEach(function(movie){ %>
-		<li><a href="movie/<%=movie.id %>"><%=movie.title %> <%=movie.id %></a></li>	
+		<li>
+			<a href="movie/<%=movie.id %>">
+				<%=movie.title %> <%=movie.id %>
+			</a>
+			<form>
+				<input type="submit" value="Unfavorite">
+			</form>
+		</li>	
 	<% }) %>
 	</ul>
 </body>
